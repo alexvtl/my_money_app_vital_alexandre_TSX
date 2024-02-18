@@ -1,6 +1,9 @@
-.list_expenses {
+.list__expenses {
   color: rgb(253, 109, 109);
   font-weight: bold;
   display: flex;
   gap: 5px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
 }

@@ -11,12 +11,13 @@ const IncomeList: React.FC = () => {
     });
   };
   return (
-    <div>
+    <div className="list">
       {state.incomes.length > 0 ? (
         <ul>
           {state.incomes.map((income) => (
             <li className="list__incomes" key={income.id}>
-              {income.title} : {income.amount.toFixed(2)}€
+              {income.title} : {income.amount.toFixed(2)}€{" "}
+              <p className="list__date">{income.date}</p>
               <i
                 onClick={() => handleRemoveIncome(income.id)}
                 className="fa-solid fa-xmark"></i>
@@ -24,7 +25,7 @@ const IncomeList: React.FC = () => {
           ))}
         </ul>
       ) : (
-        <p>Aucun revenu enregistré.</p>
+        <p className="list__avoid">Aucun revenu enregistré.</p>
       )}
     </div>
   );

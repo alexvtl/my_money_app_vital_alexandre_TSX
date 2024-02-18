@@ -17,7 +17,12 @@ const AddIncome: React.FC = () => {
       ? // Réinitialise les champs du formulaire après l'envoi
         dispatch({
           type: "ADD_INCOME",
-          payload: { id: Date.now(), title, amount: parseFloat(amount) },
+          payload: {
+            id: Date.now(),
+            title,
+            amount: parseFloat(amount),
+            date: new Date().toLocaleDateString(),
+          },
         })
       : null;
     setTitle("");

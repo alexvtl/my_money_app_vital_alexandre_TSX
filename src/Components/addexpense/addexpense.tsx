@@ -17,7 +17,12 @@ const AddExpense: React.FC = () => {
     typeof parseFloat(amount) === "number" && !isNaN(parseFloat(amount))
       ? dispatch({
           type: "ADD_EXPENSE",
-          payload: { id: Date.now(), title, amount: Number(amount) },
+          payload: {
+            id: Date.now(),
+            title,
+            amount: Number(amount),
+            date: new Date().toLocaleDateString(),
+          },
         })
       : null;
     // Réinitialise les champs du formulaire après l'envoi

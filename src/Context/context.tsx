@@ -2,9 +2,14 @@ import React, { createContext, useReducer } from "react";
 import { Expense, Income, ExpenseAction } from "../types";
 
 const initialState = {
-  expenses: [], // Tableau pour stocker les dépenses
-  incomes: [], // Tableau pour stocker les revenus
-  initialBudget: 0, // Valeur initiale du budget
+  expenses: [
+    { id: 1708249431948, title: "courses", amount: 200, date: "18/02/2024" },
+    { id: 1708249440000, title: "loyer", amount: 500, date: "18/02/2024" },
+  ], // Tableau pour stocker les dépenses
+  incomes: [
+    { id: 1708249431948, title: "salaire", amount: 1700, date: "18/02/2024" },
+  ], // Tableau pour stocker les revenus
+  initialBudget: 100, // Valeur initiale du budget
 };
 
 interface ExpenseState {
@@ -24,7 +29,7 @@ interface MyComponentProps {
 const expenseReducer = (state: ExpenseState, action: ExpenseAction) => {
   switch (action.type) {
     case "ADD_EXPENSE":
-      // Ajoute une nouvelle dépense au tableau des dépenses
+      // Ajoute une nouvelle dépense
       return { ...state, expenses: [...state.expenses, action.payload] };
     case "REMOVE_EXPENSE":
       // Supprime une dépense du tableau en filtrant par ID
@@ -35,19 +40,19 @@ const expenseReducer = (state: ExpenseState, action: ExpenseAction) => {
         ),
       };
     case "ADD_INCOME":
-      // Ajoute un nouveau revenu au tableau des revenus
+      // Ajoute un nouveau revenu
       return { ...state, incomes: [...state.incomes, action.payload] };
     case "REMOVE_INCOME":
-      // Supprime un revenu du tableau en filtrant par ID
+      // Supprime un revenu du tableau avec l'id
       return {
         ...state,
         incomes: state.incomes.filter((income) => income.id !== action.payload),
       };
     case "SET_INITIAL_BUDGET":
-      // Met à jour le budget initial avec la nouvelle valeur
+      // Met à jour le budget initial
       return { ...state, initialBudget: action.payload };
     default:
-      // Retourne l'état actuel pour toute action non gérée
+      // Retourne l'état actuel si action non gérée
       return state;
   }
 };

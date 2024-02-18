@@ -2,12 +2,14 @@ export interface Expense {
   id: number;
   title: string;
   amount: number;
+  date: string;
 }
 
 export interface Income {
   id: number;
   title: string;
   amount: number;
+  date: string;
 }
 
 export type ExpenseAction =

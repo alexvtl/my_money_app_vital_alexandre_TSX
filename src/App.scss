@@ -68,3 +68,18 @@ label {
   color: red;
   cursor: pointer;
 }
+.list {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+  background-color: rgba(255, 255, 255, 0.479);
+  border-radius: 10px;
+  &__date {
+    color: black;
+    font-size: 14px;
+  }
+  &__avoid {
+    color: black;
+  }
+}

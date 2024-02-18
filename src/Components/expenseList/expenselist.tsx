@@ -13,12 +13,13 @@ const ExpenseList: React.FC = () => {
     });
   };
   return (
-    <div>
+    <div className="list">
       {state.expenses.length > 0 ? (
         <ul>
           {state.expenses.map((expense) => (
-            <li className="list_expenses" key={expense.id}>
-              {expense.title} : {expense.amount.toFixed(2)}€
+            <li className="list__expenses" key={expense.id}>
+              {expense.title} : {expense.amount.toFixed(2)}€{" "}
+              <p className="list__date">{expense.date}</p>
               <i
                 onClick={() => handleRemoveExpense(expense.id)}
                 className="fa-solid fa-xmark"></i>
@@ -26,7 +27,7 @@ const ExpenseList: React.FC = () => {
           ))}
         </ul>
       ) : (
-        <p>Aucune dépense enregistrée.</p>
+        <p className="list__avoid">Aucune dépense enregistrée.</p>
       )}
     </div>
   );
